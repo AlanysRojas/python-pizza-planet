@@ -1,9 +1,8 @@
+
 from unicodedata import name
 from app.common.http_methods import GET, POST, PUT
 from flask import Blueprint
-
 from .base_service import BaseService
-
 from ..controllers import BeverageController
 
 beverage = Blueprint('beverage', __name__)
