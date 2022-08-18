@@ -38,4 +38,3 @@ class OrderController(BaseController):
             return cls.manager.create(order_with_price, ingredients, beverages), None
         except (SQLAlchemyError, RuntimeError) as ex:
             return None, str(ex)
-        
