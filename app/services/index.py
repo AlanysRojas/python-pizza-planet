@@ -18,4 +18,3 @@ def seed_database():
         return jsonify({'working': 'hard'})
     except:
         return jsonify({'error': 'something went wrong'})
-        

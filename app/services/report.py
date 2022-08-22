@@ -38,4 +38,3 @@ def __parse_datetime_to_month_year(date: str) -> str:
     time_format = '%Y-%m-%dT%H:%M:%S'
     date = datetime.strptime(date, time_format)
     return f'{date.year}-{date.month}'
-    
