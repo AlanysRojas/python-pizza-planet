@@ -7,7 +7,7 @@ PIZZA_INGREDIENTS = ["Tomatoes", "Onion", "Cheese", "Sausage", "Pepper", "Salami
 BEVERAGES = ["Coca-cola", "Fanta", "Inca-cola", "Orange", "Pepsi", "Fiora"]
 
 fake = Faker()
-def feed_basic_options():
+def fill_data_base():
     db.session()
     factory_sizes = [
         Size(

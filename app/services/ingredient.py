@@ -12,10 +12,6 @@ ingredient_service = BaseService(entity_controller=IngredientController)
 def create_ingredient():
     return ingredient_service.create()
 
-@ingredient.route("/", methods=POST)
-def create_ingredient_factory():
-    return ingredient_service.create_factory()
-
 @ingredient.route("/", methods=PUT)
 def update_ingredient():
     return ingredient_service.update()

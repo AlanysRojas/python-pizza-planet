@@ -1,7 +1,7 @@
 from app.common.http_methods import GET
 from flask import Blueprint, jsonify
 
-from ..factories.factories import feed_basic_options
+from ..factories.factories import fill_data_base
 from ..controllers import IndexController
 
 index = Blueprint('index', __name__)
@@ -11,7 +11,11 @@ def get_index():
     is_database_up, error = IndexController.test_connection()
     return jsonify({'version': '0.0.2', 'status': 'up' if is_database_up else 'down', 'error': error})
 
-@index.route('/seed_database', methods=GET)
+@index.route('/fill_data_base', methods=GET)
 def seed_database():
-    feed_basic_options()
-    return jsonify({'working': 'hard'})
+    try:
+        fill_data_base()
+        return jsonify({'working': 'hard'})
+    except:
+        return jsonify({'error': 'something went wrong'})
+        

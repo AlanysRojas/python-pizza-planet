@@ -50,3 +50,4 @@ class OrderController(BaseController):
     @classmethod
     def get_best_months(cls):
         return cls.manager.get_best_months()
+        
