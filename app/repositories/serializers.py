@@ -2,6 +2,7 @@ from app.plugins import ma
 from .models import Ingredient, Size, Order, OrderDetail, Beverage
 
 
+# pylint: disable=too-many-ancestors
 class IngredientSerializer(ma.SQLAlchemyAutoSchema):
 
     class Meta:

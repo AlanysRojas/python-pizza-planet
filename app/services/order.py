@@ -1,8 +1,7 @@
+from flask import Blueprint, jsonify
 from app.common.http_methods import GET, POST
-from flask import Blueprint
-from flask import jsonify, request
-
 from .base_service import BaseService
+
 
 from ..test.fixtures.order import order
 
