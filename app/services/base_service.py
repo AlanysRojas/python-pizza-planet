@@ -4,6 +4,7 @@ from ..controllers.base import BaseController
 
 class BaseService():
     entity_controller: BaseController
+
     def __init__(self, entity_controller: BaseController):
         self.entity_controller = entity_controller
 

@@ -18,6 +18,7 @@ class Order(db.Model):
     def get_id(self):
         return self._id
 
+
 class Ingredient(db.Model):
     _id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
@@ -31,7 +32,6 @@ class Beverage(db.Model):
     _id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     price = db.Column(db.Float, nullable=False)
-
 
 
 class Size(db.Model):

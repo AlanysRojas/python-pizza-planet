@@ -5,7 +5,6 @@ from .serializers import (IngredientSerializer, BeverageSerializer, OrderSeriali
                           SizeSerializer, ma)
 
 
-
 class BaseManager:
     model: db.Model
     serializer: ma.SQLAlchemyAutoSchema
@@ -25,7 +24,9 @@ class BaseManager:
 
     @classmethod
     def get_by_id_list(cls, ids: Sequence):
-        _objects = cls.session.query(cls.model).filter(cls.model._id.in_(set(ids))).all() or []  # pylint: disable=protected-access
+        # pylint: disable=protected-access
+        _objects = cls.session.query(cls.model)\
+            .filter(cls.model._id.in_(set(ids))).all() or []
         return _objects
 
     @classmethod
@@ -46,6 +47,7 @@ class BaseManager:
 class SizeManager(BaseManager):
     model = Size
     serializer = SizeSerializer
+
 
 class IngredientManager(BaseManager):
     model = Ingredient
@@ -103,25 +105,23 @@ class OrderManager(BaseManager):
     @classmethod
     def get_best_customers(cls):
         serializer = cls.serializer(many=True)
-        _objects = cls.session.query(
-            Order.client_name, func.count(Order._id).label('qty')
-            ).group_by(Order.client_name
-            ).order_by(desc('qty')
-            ).limit(3)
+        _objects = cls.session.query(Order.client_name, func.count(Order._id).label('qty'))\
+            .group_by(Order.client_name)\
+            .order_by(desc('qty'))\
+            .limit(3)
         result = serializer.dump(_objects)
         return result
 
     @classmethod
     def get_best_months(cls):
         serializer = cls.serializer(many=True)
-        _objects = cls.session.query(Order.date, func.count(Order._id).label('qty')
         # Here we group by month to prevent fetch same month with different days
-        ).group_by(func.strftime("%Y-%m", Order.date)
-        ).order_by(desc('qty')
-        ).limit(3)
+        _objects = cls.session.query(Order.date, func.count(Order._id).label('qty'))\
+            .group_by(func.strftime("%Y-%m", Order.date))\
+            .order_by(desc('qty'))\
+            .limit(3)
         result = serializer.dump(_objects)
         return result
-
 
     @classmethod
     def update(cls):

@@ -21,6 +21,7 @@ def get_best_ingredients():
         return jsonify(list(ingredients.values())), status_code
     return jsonify(response), status_code
 
+
 @report.route("/best_customers", methods=GET)
 def get_best_customers():
     customers = OrderController.get_best_customers()
@@ -30,7 +31,7 @@ def get_best_customers():
 @report.route("/best_months", methods=GET)
 def get_best_months():
     data = OrderController.get_best_months()
-    parsed_dates = map(lambda _data: {'date':__parse_datetime_to_month_year(_data['date'])}, data)
+    parsed_dates = map(lambda _data: {'date': __parse_datetime_to_month_year(_data['date'])}, data)
     return jsonify(list(parsed_dates)), 200
 
 

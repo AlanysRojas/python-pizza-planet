@@ -16,7 +16,7 @@ def fill_data_base():
     factory_sizes = [
         Size(
             name=_size,
-            price=fake.pyfloat( left_digits=2 , right_digits=2, positive=True)
+            price=fake.pyfloat(left_digits=2, right_digits=2, positive=True)
         ) for _index, _size in enumerate(PIZZA_SIZES)
     ]
     db.session.add_all(factory_sizes)
