@@ -1,6 +1,7 @@
 <h1 align="center"> Python Pizza Planet </h1>
 
 ![python-badge](https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ce6679dd553a49d2a3b67bcc2cc9df12)](https://app.codacy.com/gh/AlanysRojas/python-pizza-planet?utm_source=github.com&utm_medium=referral&utm_content=AlanysRojas/python-pizza-planet&utm_campaign=Badge_Grade_Settings)
 [![Coverage Status](https://coveralls.io/repos/github/AlanysRojas/python-pizza-planet/badge.svg?branch=main)](https://coveralls.io/github/AlanysRojas/python-pizza-planet?branch=main)
 
 This is an example software for a pizzeria that takes customizable orders.
